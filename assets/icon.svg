@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="90" fill="#11110f"/>
+<rect x="55" y="65" width="402" height="382" rx="42" fill="#d6ccb6" stroke="#080808" stroke-width="16"/>
+<text x="256" y="155" text-anchor="middle" font-family="Arial Black,Arial" font-size="72" fill="#11110f">TT</text>
+<circle cx="175" cy="270" r="82" fill="#191919" stroke="#e05a32" stroke-width="15"/>
+<circle cx="337" cy="270" r="82" fill="#191919" stroke="#e05a32" stroke-width="15"/>
+<circle cx="175" cy="270" r="23" fill="#d6ccb6"/>
+<circle cx="337" cy="270" r="23" fill="#d6ccb6"/>
+<rect x="160" y="375" width="192" height="22" rx="11" fill="#e05a32"/>
+</svg>

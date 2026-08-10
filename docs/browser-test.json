@@ -1,0 +1,72 @@
+{
+  "checks": {
+    "initial_idle": true,
+    "premium_no_anchors": true,
+    "share_hidden_desktop": true,
+    "corrupt_rejected": true,
+    "four_channel_rejected": true,
+    "too_big_rejected": true,
+    "wav_header": true,
+    "wav_24bit": true,
+    "random_marks_dirty": true,
+    "random_reprocess": true,
+    "ab_original": true,
+    "ab_fx": true,
+    "mobile_no_overflow": true,
+    "mobile_share_initial_hidden": true,
+    "mobile_share_behavior": true
+  },
+  "audio_cases": {
+    "stereo": {
+      "processed": true,
+      "download_enabled": true
+    },
+    "mono": {
+      "processed": true,
+      "download_enabled": true
+    },
+    "silence": {
+      "processed": true,
+      "download_enabled": true
+    },
+    "quiet": {
+      "processed": true,
+      "download_enabled": true
+    },
+    "clipped": {
+      "processed": true,
+      "download_enabled": true
+    },
+    "hires96": {
+      "processed": true,
+      "download_enabled": true
+    }
+  },
+  "matrix": {
+    "tape": {
+      "new": true,
+      "worn": true,
+      "dead": true
+    },
+    "cassette": {
+      "new": true,
+      "worn": true,
+      "dead": true
+    },
+    "boombox": {
+      "new": true,
+      "worn": true,
+      "dead": true
+    },
+    "recorder": {
+      "new": true,
+      "worn": true,
+      "dead": true
+    }
+  },
+  "page_errors": [],
+  "mobile_errors": [],
+  "all_matrix_pass": true,
+  "all_audio_cases_pass": true,
+  "all_checks_pass": true
+}

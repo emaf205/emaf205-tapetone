@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "premium_no_links_index.html": true,
+    "premium_no_links_EMAF205_TAPETONE_PREMIUM_STANDALONE.html": true,
+    "public_free_link": true,
+    "public_premium_link": true,
+    "public_guides_link": true,
+    "cassette-effect-online.html_title": true,
+    "cassette-effect-online.html_desc": true,
+    "cassette-effect-online.html_h1": true,
+    "faq.html_title": true,
+    "faq.html_desc": true,
+    "faq.html_h1": true,
+    "lofi-audio-effect.html_title": true,
+    "lofi-audio-effect.html_desc": true,
+    "lofi-audio-effect.html_h1": true,
+    "tape-effect-online.html_title": true,
+    "tape-effect-online.html_desc": true,
+    "tape-effect-online.html_h1": true,
+    "tape-saturation-guide.html_title": true,
+    "tape-saturation-guide.html_desc": true,
+    "tape-saturation-guide.html_h1": true,
+    "public_manifest": true,
+    "public_sw_no_audio_cache": true,
+    "premium_manifest": true,
+    "premium_sw_no_audio_cache": true,
+    "icons_exist": true,
+    "screenshots_exist": true
+  },
+  "failed": []
+}

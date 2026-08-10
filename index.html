@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EMAF205 TAPETONE — Online Tape Effect</title>
+<meta name="description" content="Add warm tape, cassette, boombox or recorder character to WAV and MP3 files directly in your browser.">
+<meta name="theme-color" content="#0d0d0c">
+<meta property="og:title" content="EMAF205 TAPETONE — Online Tape Effect">
+<meta property="og:description" content="Vintage tape character for WAV and MP3, processed directly in your browser.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"EMAF205 TAPETONE","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Browser-based tape, cassette, boombox and recorder audio effect for WAV and MP3.","creator":{"@type":"Person","name":"EmaF205"}}</script>
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app-shell" id="appShell">
+  <section class="device" id="machine" aria-label="EMAF205 Tapetone audio processor">
+    <span class="screw screw-a"></span><span class="screw screw-b"></span><span class="screw screw-c"></span><span class="screw screw-d"></span>
+
+    <header class="nameplate">
+      <strong>TAPETONE</strong>
+      <span>EMAF205</span>
+    </header>
+
+    <div class="reel-bay" id="dropZone" role="button" tabindex="0" aria-label="Upload WAV or MP3">
+      <div class="reel-side left">
+        <span class="reel-label">ORIGINAL</span>
+        <img class="reel" id="reelOriginal" src="assets/reel.svg" alt="">
+      </div>
+      <div class="reel-center">
+        <div id="uploadState" class="state active">
+          <span class="upload-arrow">↑</span>
+          <strong>DROP AUDIO</strong>
+          <small>WAV / MP3</small>
+        </div>
+        <div id="busyState" class="state">
+          <strong id="busyText">PROCESSING</strong>
+          <div class="progress"><span id="progressBar"></span></div>
+          <small id="progressText">0%</small>
+        </div>
+        <div id="playerState" class="state player-state">
+          <canvas id="wave" width="520" height="105" aria-label="Audio waveform"></canvas>
+          <div class="time-row"><span id="timeNow">00:00</span><span id="fileLabel">READY</span><span id="timeTotal">00:00</span></div>
+        </div>
+      </div>
+      <div class="reel-side right">
+        <span class="reel-label">FX</span>
+        <img class="reel" id="reelFx" src="assets/reel.svg" alt="">
+      </div>
+    </div>
+
+    <input id="fileInput" type="file" accept="audio/wav,audio/x-wav,audio/mpeg,.wav,.mp3" hidden>
+
+    <div class="selector-strip">
+      <label class="select-group">MODE
+        <select id="modeSelect" aria-label="Tape model">
+          <option value="tape">TAPE</option>
+          <option value="cassette">CASSETTE</option>
+          <option value="boombox">BOOMBOX</option>
+          <option value="recorder">RECORDER</option>
+        </select>
+      </label>
+      <label class="select-group">AGE
+        <select id="ageSelect" aria-label="Tape age">
+          <option value="new">NEW</option>
+          <option value="worn" selected>WORN</option>
+          <option value="dead">DEAD</option>
+        </select>
+      </label>
+      <div class="random-group">
+        <span>RANDOM</span>
+        <button id="randomBtn" class="toggle-btn" type="button" aria-label="Create random tape variation"><i></i></button>
+      </div>
+    </div>
+
+    <div class="transport-strip">
+      <button id="uploadBtn" class="action upload" type="button"><span>UPLOAD<br>AUDIO</span><b>↑</b></button>
+      <button id="playBtn" class="icon-btn" type="button" disabled aria-label="Play">▶</button>
+      <div class="ab-switch" aria-label="Original or processed audio">
+        <button id="origBtn" type="button" class="active" disabled>ORIGINAL</button>
+        <button id="fxBtn" type="button" disabled>FX</button>
+      </div>
+      <button id="processBtn" class="action process" type="button" disabled>PROCESS</button>
+      <button id="downloadBtn" class="action download" type="button" disabled><span>DOWNLOAD<br>WAV</span><b>↓</b></button>
+      <button id="shareBtn" class="action share" type="button" hidden disabled>SHARE</button>
+    </div>
+
+    <div class="status-strip" aria-live="polite">
+      <span><i id="sigLed" class="led"></i>SIGNAL</span>
+      <span><i id="clipLed" class="led red"></i>CLIP</span>
+      <span><i id="readyLed" class="led"></i><b id="readyText">IDLE</b></span>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><strong>EMAF205 TAPETONE</strong><a href="http://emaf205.com/audio" target="_blank" rel="noopener">FREE AUDIO APPS ↗</a><a href="http://emaf205.com/audio_pro" target="_blank" rel="noopener">PREMIUM COLLECTION ↗</a><a href="guides/tape-effect-online.html">GUIDES</a></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
