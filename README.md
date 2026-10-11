@@ -1,91 +1,93 @@
-# EMAF205 TAPETONE
+# TapeTone Player — Analog Cassette Nostalgia & Web Audio Synthesis
 
-**Vintage tape character directly in your browser.**
+<p align="center">
+  <img src="https://emaf205.com/github/assets/covers/emaf205-tapetone.jpg" alt="TapeTone Player Cover Artwork" width="100%">
+</p>
 
-TAPETONE is a static browser-based audio processor for WAV and MP3 files. It is designed around a deliberately small workflow: upload, choose a tape character, process, compare Original / FX, and export a 24-bit WAV.
+> **"A love letter to the tactile warmth and mechanical soul of analog cassette decks."**  
+> An experiential, client-side Web Audio player recreating the physical sensation of magnetic tape: spinning reel inertia, mechanical piano-key button clicks, customizable tape saturation, and ambient lo-fi acoustics.
 
-![TAPETONE desktop interface](screenshots/desktop.png)
+[![Live Web App](https://img.shields.io/badge/Live_App-emaf205--tapetone.netlify.app-dfff00?style=for-the-badge&logo=googlechrome&logoColor=000000)](https://emaf205-tapetone.netlify.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-emaf205%2Femaf205--tapetone-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/emaf205/emaf205-tapetone)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 
-## Features
+---
 
-- Browser-side audio processing
-- Tape, Cassette, Boombox and Recorder characters
-- New, Worn and Dead age profiles
-- Randomized but controlled tape variation
-- Loudness-compensated Original / FX comparison
-- 24-bit WAV export
-- Adaptive file-duration limits for mobile devices
-- Responsive phone, tablet and desktop interface
-- Installable PWA over HTTPS / localhost
-- Offline core app after caching
-- No account or paid audio API required
+## ✦ The Genesis & Why This Exists
 
-## Mobile
+Modern music streaming interfaces have become sterile, hyper-optimized glass rectangles. You tap a frictionless digital surface, an algorithm plays a lossless audio stream, and the entire physical romance of listening to music evaporates.
 
-![TAPETONE mobile interface](screenshots/mobile.png)
+Growing up with cassette tapes meant physical engagement:
+- The heavy, satisfying mechanical clunk of pressing <kbd>PLAY</kbd> or <kbd>EJECT</kbd>.
+- Watching two plastic reels rotate at slightly varying angular velocities as ribbon transfers from left to right.
+- The warm, rounded low-end frequency profile shaped by magnetic tape heads and subtle tape hiss.
 
-The interface is designed for touch. Processing limits are deliberately more conservative on phones and tablets to reduce memory failures.
+I built **TapeTone** to revive that physical intimacy on the web. It is not just an MP3 player wrapped in a skeuomorphic skin: it is a **procedural Web Audio acoustic engine** that models mechanical inertia, button travel, reel physics, and audio filtering in real time.
 
-## How to use
+---
 
-1. Upload a WAV or MP3 file.
-2. Select a **Mode** and **Age**.
-3. Optionally load a **Random** tape variation.
-4. Press **Process**.
-5. Compare **Original** and **FX**.
-6. Download the processed **24-bit WAV**.
+## ✦ Live Interface & Screenshots
 
-## Modes
+<p align="center">
+  <img src="screenshots/desktop.png" alt="TapeTone Desktop Interface" width="68%">
+  <img src="screenshots/mobile.png" alt="TapeTone Mobile Ergonomics" width="28%">
+</p>
 
-| Mode | Character |
-|---|---|
-| Tape | Warm, balanced and subtle |
-| Cassette | Darker, compressed and unstable |
-| Boombox | Narrower, mid-forward and gritty |
-| Recorder | Reduced bandwidth and strongly lo-fi |
+---
 
-## Privacy
+## ✦ Key Features
 
-Audio processing is performed client-side. This static application does not intentionally send uploaded audio to an external audio-processing service.
+- **📼 Kinetic Cassette Reel Physics**:
+  - Independent SVG spool animations that realistically calculate tape thickness and rotation speed as the track progresses.
+  - Smooth deceleration and acceleration when pausing and resuming.
+- **🔊 Procedural Mechanical Clicks**:
+  - Zero external MP3 click samples. Audio clicks for buttons (<kbd>PLAY</kbd>, <kbd>STOP</kbd>, <kbd>PAUSE</kbd>, <kbd>FFWD</kbd>) are synthesized procedurally via the Web Audio API using micro-burst noise and low-pass resonant filter decay.
+- **🎛️ Analog Tone & Tape Saturation**:
+  - Optional lo-fi acoustic filter modeling subtle flutter, warm harmonic warmth, and high-shelf rolloff.
+- **📁 Drag & Drop Local Audio**:
+  - Drop your own audio tracks (`.mp3`, `.wav`, `.ogg`, `.flac`) directly onto the cassette window.
+  - Zero server uploads: audio streams purely from local device storage.
+- **📲 Mobile-First PWA**:
+  - Fully responsive layout tuned for iPhone and Android touchscreens.
+  - Works offline via Service Worker caching.
 
-## Run locally
+---
 
-Open `index.html` directly for basic local use, or run a local static server for full PWA behavior:
+## ✦ Technical Highlights
+
+```text
+emaf205-tapetone/
+├── index.html           # Semantic cassette deck chassis and tape window
+├── styles.css           # Skeuomorphic plastic textures, reel geometry
+├── app.js               # Web Audio API graph, mechanical audio synth, reel physics
+├── manifest.webmanifest # PWA configuration
+├── service-worker.js    # Offline asset caching
+└── screenshots/         # Interface previews
+```
+
+- **Pure Vanilla Web Standards**: Zero React, zero Vue, zero heavy audio frameworks.
+- **60 FPS Hardware-Accelerated Transforms**: Butter-smooth spinning reels rendered with CSS `will-change: transform`.
+
+---
+
+## ✦ Quickstart & Offline Execution
 
 ```bash
+# Clone the repository
+git clone https://github.com/emaf205/emaf205-tapetone.git
+cd emaf205-tapetone
+
+# Start any local HTTP server
 python3 -m http.server 8080
 ```
 
-Then open `http://localhost:8080`.
+Open [http://localhost:8080](http://localhost:8080) to load your cassette tape deck.
 
-## PWA
+---
 
-PWA installation requires a secure context such as HTTPS or localhost. The service worker caches only application assets; it does not intentionally cache user audio files.
+## ✦ Author & Credits
 
-## Project structure
+Designed and coded by **[Emanuele BDC](https://emaf205.com)** in Milan.  
+Dedicated to analog enthusiasts, lo-fi producers, and anyone who misses the sound of a cassette clicking into place.
 
-```text
-assets/                 App graphics and PWA icons
-guides/                 SEO / help pages
-screenshots/            README images
-app.js                   DSP, player, export and state logic
-styles.css               Responsive interface
-index.html               Main static app
-manifest.webmanifest     PWA manifest
-service-worker.js        Offline app-shell cache
-robots.txt               Crawler policy
-sitemap.xml              Deployment placeholder
-```
-
-## Links
-
-- Free Audio Apps: http://emaf205.com/audio
-- Premium Collection: http://emaf205.com/audio_pro
-
-## Credits
-
-**Made in Milan by EmaF205.**
-
-## License
-
-Copyright © 2026 EmaF205. All rights reserved. See `LICENSE`.
+Distributed under the **MIT License**. Free for personal and creative listening.
