@@ -1,7 +1,7 @@
 # TapeTone Player — Analog Cassette Nostalgia & Web Audio Synthesis
 
 <p align="center">
-  <img src="https://emaf205.com/github/assets/covers/emaf205-tapetone.jpg" alt="TapeTone Player Cover Artwork" width="100%">
+  <img src="assets/social-preview.jpg" alt="TapeTone Player Cover Artwork" width="100%">
 </p>
 
 > **"A love letter to the tactile warmth and mechanical soul of analog cassette decks."**  
